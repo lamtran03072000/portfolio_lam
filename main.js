@@ -444,3 +444,26 @@ if (tocLinks.length > 0) {
   // Trigger once on load
   window.dispatchEvent(new Event('scroll'));
 }
+
+// ----------------------------------------------------
+// 6. COPY TO CLIPBOARD
+// ----------------------------------------------------
+window.copyContact = function(event, textToCopy, btnElement, preventDefault) {
+  if (preventDefault) {
+    event.preventDefault();
+  }
+  
+  navigator.clipboard.writeText(textToCopy).then(() => {
+    const textSpan = btnElement.querySelector('.btn-text');
+    if (textSpan) {
+      const originalText = textSpan.innerText;
+      textSpan.innerText = 'Copied!';
+      
+      setTimeout(() => {
+        textSpan.innerText = originalText;
+      }, 2000);
+    }
+  }).catch(err => {
+    console.error('Failed to copy: ', err);
+  });
+};
