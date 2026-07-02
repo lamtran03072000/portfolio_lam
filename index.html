@@ -15,12 +15,12 @@
     <div id="canvas-container"></div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full z-50 glass border-b-0 border-zinc-800/50 py-4 px-6 md:px-12 flex justify-between items-center transition-all duration-300">
-      <div class="font-semibold text-lg tracking-tight text-white">LAM<span class="text-emerald-400">.</span></div>
-      <div class="flex gap-6 text-sm font-medium text-zinc-400">
-        <a href="#skills" class="hover:text-zinc-100 transition-colors">Skills</a>
-        <a href="#experience" class="hover:text-zinc-100 transition-colors">Experience</a>
-        <a href="mailto:devlamtran@gmail.com" class="hover:text-white transition-colors text-emerald-400">Contact</a>
+    <nav class="fixed top-0 left-0 w-full z-50 glass border-b-0 border-zinc-800/50 py-4 px-4 md:px-12 flex justify-between items-center transition-all duration-300">
+      <div class="font-semibold text-lg tracking-tight text-white shrink-0 mr-4">LAM<span class="text-emerald-400">.</span></div>
+      <div class="flex gap-4 sm:gap-6 text-sm font-medium text-zinc-400 overflow-x-auto no-scrollbar pb-1 sm:pb-0">
+        <a href="#skills" class="hover:text-zinc-100 transition-colors whitespace-nowrap">Skills</a>
+        <a href="#experience" class="hover:text-zinc-100 transition-colors whitespace-nowrap">Experience</a>
+        <a href="mailto:devlamtran@gmail.com" class="hover:text-white transition-colors text-emerald-400 whitespace-nowrap">Contact</a>
       </div>
     </nav>
 
@@ -126,9 +126,9 @@
       </section>
 
       <!-- Skills Section (Bento Grid) -->
-      <section id="skills-container" class="relative h-[400vh] snap-start">
+      <section id="skills-container" class="relative h-auto lg:h-[400vh] snap-start scroll-mt-20 lg:scroll-mt-0">
         <!-- Sticky Area -->
-        <div class="sticky top-0 h-screen grid grid-cols-1 lg:grid-cols-12 content-center items-center pt-16 md:pt-20 pb-4 overflow-hidden w-full z-20 px-2 sm:px-4 gap-6 md:gap-8 lg:gap-12">
+        <div class="static lg:sticky top-0 h-auto lg:h-screen grid grid-cols-1 lg:grid-cols-12 content-center items-center pt-8 lg:pt-16 md:pt-20 pb-4 overflow-hidden w-full z-20 px-2 sm:px-4 gap-6 md:gap-8 lg:gap-12">
           
           <!-- Left Side: Header & Progress -->
           <div class="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left">
@@ -223,9 +223,9 @@
         </div>
       </section>
 
-      <!-- Experience Section (UrBox) -->
-      <section id="exp-urbox" class="relative h-[400vh] w-full snap-start">
-        <div class="sticky top-0 h-screen w-full flex flex-col justify-start pt-24 pb-4 overflow-hidden px-4 md:px-8">
+      <!-- Experience Section (Horizontal Scroll for UrBox) -->
+      <section id="exp-urbox" class="relative h-auto lg:h-[500vh] w-full snap-start scroll-mt-20 lg:scroll-mt-0 mt-20 lg:mt-0">
+        <div class="static lg:sticky top-0 h-auto lg:h-screen w-full flex flex-col justify-start pt-8 lg:pt-24 pb-4 overflow-hidden px-4 md:px-8">
           <div class="flex justify-center w-full max-w-4xl mx-auto">
             
             <!-- UrBox -->
@@ -663,8 +663,8 @@
       </section>
 
       <!-- Experience Section (CyberSoft) -->
-      <section id="exp-cybersoft" class="relative h-[250vh] w-full snap-start">
-        <div class="sticky top-0 h-screen w-full flex flex-col justify-start pt-24 pb-4 overflow-hidden px-4 md:px-8">
+      <section id="exp-cybersoft" class="relative h-auto lg:h-[250vh] w-full snap-start scroll-mt-20 lg:scroll-mt-0 mt-20 lg:mt-0">
+        <div class="static lg:sticky top-0 h-auto lg:h-screen w-full flex flex-col justify-start pt-8 lg:pt-24 pb-4 overflow-hidden px-0 sm:px-4 md:px-8">
           <div class="flex justify-center w-full max-w-4xl mx-auto">
             
             <!-- CyberSoft -->

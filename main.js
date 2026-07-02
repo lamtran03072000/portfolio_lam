@@ -210,22 +210,33 @@ const skillsProgressBar = document.getElementById('skills-progress-bar');
 const skillSteps = document.querySelectorAll('.skill-step');
 
 if (skillsContainer && skillsProgressBar && skillSteps.length > 0) {
+  // Helper function to set initial/reset state
+  const setSkillsState = (isMobile) => {
+    skillSteps.forEach((step, idx) => {
+      if (isMobile || idx === 0) {
+        step.style.opacity = '1';
+        step.style.transform = 'scale(1)';
+        step.style.borderColor = 'rgba(16, 185, 129, 0.4)'; // emerald-500/40 border
+        step.style.filter = 'grayscale(0)';
+      } else {
+        step.style.opacity = '0.3';
+        step.style.transform = 'scale(0.98)';
+        step.style.borderColor = 'rgba(39, 39, 42, 0.6)'; // zinc-800/60 border
+        step.style.filter = 'grayscale(0.8)';
+      }
+    });
+    if (isMobile) skillsProgressBar.style.width = '100%';
+  };
+
   // Set initial state
-  skillSteps.forEach((step, idx) => {
-    if (idx === 0) {
-      step.style.opacity = '1';
-      step.style.transform = 'scale(1)';
-      step.style.borderColor = 'rgba(16, 185, 129, 0.4)'; // emerald-500/40 border
-      step.style.filter = 'grayscale(0)';
-    } else {
-      step.style.opacity = '0.3';
-      step.style.transform = 'scale(0.98)';
-      step.style.borderColor = 'rgba(39, 39, 42, 0.6)'; // zinc-800/60 border
-      step.style.filter = 'grayscale(0.8)';
-    }
-  });
+  setSkillsState(window.innerWidth < 1024);
 
   document.addEventListener('scroll', () => {
+    if (window.innerWidth < 1024) {
+      setSkillsState(true);
+      return;
+    }
+
     const rect = skillsContainer.getBoundingClientRect();
     const viewportHeight = window.innerHeight;
     
@@ -277,14 +288,27 @@ function setupExperienceScroll(sectionId, bulletsClass, progressLineId) {
   const cardInner = cardWrapper ? cardWrapper.querySelector('.glass-card') : null;
 
   if (section && progressLine && bullets.length > 0) {
-    // Initial state for bullets
-    bullets.forEach((bullet) => {
-      bullet.querySelector('.bullet-dot').style.backgroundColor = '#3f3f46'; // zinc-700
-      bullet.querySelector('.bullet-glow').style.opacity = '0';
-      bullet.querySelector('.bullet-text').style.color = '#52525b'; // zinc-600
-    });
+    const setExperienceState = (isMobile) => {
+      bullets.forEach((bullet) => {
+        bullet.querySelector('.bullet-dot').style.backgroundColor = isMobile ? '#10b981' : '#3f3f46';
+        bullet.querySelector('.bullet-glow').style.opacity = isMobile ? '0.5' : '0';
+        bullet.querySelector('.bullet-text').style.color = isMobile ? '#e4e4e7' : '#52525b';
+      });
+      if (isMobile) {
+        progressLine.style.height = '100%';
+        if (cardInner) cardInner.style.transform = 'translateY(0)';
+      }
+    };
+
+    // Initial state
+    setExperienceState(window.innerWidth < 1024);
 
     document.addEventListener('scroll', () => {
+      if (window.innerWidth < 1024) {
+        setExperienceState(true);
+        return;
+      }
+
       const rect = section.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
       
