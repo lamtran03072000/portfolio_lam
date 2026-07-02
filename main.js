@@ -454,13 +454,14 @@ window.copyContact = function(event, textToCopy, btnElement, preventDefault) {
   }
   
   navigator.clipboard.writeText(textToCopy).then(() => {
-    const textSpan = btnElement.querySelector('.btn-text');
-    if (textSpan) {
-      const originalText = textSpan.innerText;
-      textSpan.innerText = 'Copied!';
+    const toast = document.getElementById('copy-toast');
+    if (toast) {
+      toast.style.opacity = '1';
+      toast.style.transform = 'translate(-50%, -10px)';
       
       setTimeout(() => {
-        textSpan.innerText = originalText;
+        toast.style.opacity = '0';
+        toast.style.transform = 'translate(-50%, 0)';
       }, 2000);
     }
   }).catch(err => {
