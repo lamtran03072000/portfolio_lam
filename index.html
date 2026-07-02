@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth snap-y snap-mandatory">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tran Hoang Lam - Fullstack Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  </head>
+  <body class="text-zinc-200 antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+    <!-- ThreeJS Canvas Background -->
+    <div id="canvas-container"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass border-b-0 border-zinc-800/50 py-4 px-6 md:px-12 flex justify-between items-center transition-all duration-300">
+      <div class="font-semibold text-lg tracking-tight text-white">LAM<span class="text-emerald-400">.</span></div>
+      <div class="flex gap-6 text-sm font-medium text-zinc-400">
+        <a href="#skills" class="hover:text-zinc-100 transition-colors">Skills</a>
+        <a href="#experience" class="hover:text-zinc-100 transition-colors">Experience</a>
+        <a href="mailto:devlamtran@gmail.com" class="hover:text-white transition-colors text-emerald-400">Contact</a>
+      </div>
+    </nav>
+
+    <main class="relative z-10 mx-auto max-w-7xl px-4 md:px-8 pt-32 pb-24 flex flex-col lg:flex-row gap-8 lg:gap-16">
+      
+      <!-- Left: Global TOC Navigation -->
+      <aside class="hidden lg:block w-48 shrink-0 relative z-50">
+        <div class="sticky top-32 flex flex-col gap-8">
+          <nav class="flex flex-col gap-6 relative" id="toc-nav">
+            <!-- Vertical Line -->
+            <div class="absolute left-[7px] top-2 bottom-2 w-[2px] bg-zinc-800/80 rounded-full">
+              <div id="toc-progress" class="absolute top-0 left-0 w-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)] transition-all duration-300 h-0"></div>
+            </div>
+            
+            <a href="#summary" class="toc-link flex items-center gap-4 group active" data-target="summary">
+              <div class="relative shrink-0 w-4 h-4 flex items-center justify-center">
+                <div class="toc-dot w-2.5 h-2.5 rounded-full bg-emerald-500 transition-colors duration-300 z-10"></div>
+                <div class="toc-glow absolute inset-0 bg-emerald-500 rounded-full opacity-50 scale-150 blur-sm transition-all duration-300"></div>
+              </div>
+              <span class="text-base font-bold text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300">Summary</span>
+            </a>
+
+            <a href="#skills-container" class="toc-link flex items-center gap-4 group" data-target="skills-container">
+              <div class="relative shrink-0 w-4 h-4 flex items-center justify-center">
+                <div class="toc-dot w-2.5 h-2.5 rounded-full bg-zinc-700 transition-colors duration-300 z-10"></div>
+                <div class="toc-glow absolute inset-0 bg-emerald-500 rounded-full opacity-0 scale-150 blur-sm transition-all duration-300"></div>
+              </div>
+              <span class="text-base font-medium text-zinc-500 group-hover:text-zinc-300 transition-colors duration-300">Skills</span>
+            </a>
+
+            <a href="#exp-urbox" class="toc-link flex items-center gap-4 group" data-target="exp-urbox">
+              <div class="relative shrink-0 w-4 h-4 flex items-center justify-center">
+                <div class="toc-dot w-2.5 h-2.5 rounded-full bg-zinc-700 transition-colors duration-300 z-10"></div>
+                <div class="toc-glow absolute inset-0 bg-emerald-500 rounded-full opacity-0 scale-150 blur-sm transition-all duration-300"></div>
+              </div>
+              <span class="text-base font-medium text-zinc-500 group-hover:text-zinc-300 transition-colors duration-300">Work Experience</span>
+            </a>
+
+            <a href="#mentoring" class="toc-link flex items-center gap-4 group" data-target="mentoring">
+              <div class="relative shrink-0 w-4 h-4 flex items-center justify-center">
+                <div class="toc-dot w-2.5 h-2.5 rounded-full bg-zinc-700 transition-colors duration-300 z-10"></div>
+                <div class="toc-glow absolute inset-0 bg-emerald-500 rounded-full opacity-0 scale-150 blur-sm transition-all duration-300"></div>
+              </div>
+              <span class="text-base font-medium text-zinc-500 group-hover:text-zinc-300 transition-colors duration-300">Mentoring</span>
+            </a>
+
+            <a href="#education" class="toc-link flex items-center gap-4 group" data-target="education">
+              <div class="relative shrink-0 w-4 h-4 flex items-center justify-center">
+                <div class="toc-dot w-2.5 h-2.5 rounded-full bg-zinc-700 transition-colors duration-300 z-10"></div>
+                <div class="toc-glow absolute inset-0 bg-emerald-500 rounded-full opacity-0 scale-150 blur-sm transition-all duration-300"></div>
+              </div>
+              <span class="text-base font-medium text-zinc-500 group-hover:text-zinc-300 transition-colors duration-300">Education</span>
+            </a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Right: Main Content Sections -->
+      <div class="flex-1 min-w-0 flex flex-col gap-32">
+      
+        <!-- Hero Section -->
+        <section id="summary" class="min-h-[85vh] grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center animate-fade-in scroll-mt-24 snap-start">
+        
+        <!-- Left: Content -->
+        <div class="flex flex-col justify-center lg:col-span-7">
+          <div class="mb-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-widest w-fit">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            Available for work
+          </div>
+          <h1 class="text-5xl md:text-6xl lg:text-[4rem] font-bold tracking-tighter text-white leading-[1.1] mb-6">
+            Fullstack Engineer <br class="hidden md:block" />
+            <span class="text-zinc-500">building complex web apps.</span>
+          </h1>
+          <p class="text-lg md:text-xl text-zinc-400 max-w-xl leading-relaxed mb-10">
+            Hi, I'm a Fullstack Developer with 4 years of experience. I have a solid background in creating complex web applications, with extensive proficiency in JavaScript. I'm interested in new technology and always strive to improve my skills.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="mailto:devlamtran@gmail.com" class="px-7 py-3.5 rounded-full bg-white text-zinc-950 font-semibold hover:bg-zinc-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:-translate-y-1 transform duration-200">
+              Let's Talk
+            </a>
+            <a href="https://github.com/devlamtran" target="_blank" class="px-6 py-3.5 rounded-full glass font-medium text-zinc-200 hover:text-white transition-all hover:bg-zinc-800/50 hover:-translate-y-1 flex items-center gap-2 duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a64.13,64.13,0,0,0,48,62.4V216a8,8,0,0,0,16,0V176h32v40a8,8,0,0,0,16,0V174.4A64.13,64.13,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a48.07,48.07,0,0,1-48,48H120a48.07,48.07,0,0,1-48-48v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,3.29-33.67A43.82,43.82,0,0,1,114.79,56.5a8,8,0,0,0,6.59,2.44,52.41,52.41,0,0,1,28.82,0,8,8,0,0,0,6.59-2.44A43.82,43.82,0,0,1,188.31,40.16a43.81,43.81,0,0,1,3.29,33.67,8,8,0,0,0,1.1,7.69A41.74,41.74,0,0,1,200,104Z"></path></svg>
+              GitHub
+            </a>
+            <a href="https://linkedin.com/in/devlamtran" target="_blank" class="px-6 py-3.5 rounded-full glass font-medium text-zinc-200 hover:text-white transition-all hover:bg-zinc-800/50 hover:-translate-y-1 flex items-center gap-2 duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Large Avatar -->
+        <div class="relative w-full max-w-sm mx-auto lg:col-span-5 lg:ml-auto aspect-[4/5] rounded-3xl p-1 bg-gradient-to-tr from-emerald-500/50 to-zinc-800 shadow-[0_0_50px_rgba(16,185,129,0.15)] group">
+          <img src="/avatar.jpg" alt="Tran Hoang Lam" class="w-full h-full object-cover rounded-[20px] border-4 border-zinc-950 grayscale-[15%] group-hover:grayscale-0 transition-all duration-500" />
+          <!-- Decorative Glows -->
+          <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-emerald-500/20 blur-3xl rounded-full pointer-events-none -z-10"></div>
+          <div class="absolute -top-6 -right-6 w-40 h-40 bg-emerald-400/10 blur-3xl rounded-full pointer-events-none -z-10"></div>
+        </div>
+        
+      </section>
+
+      <!-- Skills Section (Bento Grid) -->
+      <section id="skills-container" class="relative h-[400vh] snap-start">
+        <!-- Sticky Area -->
+        <div class="sticky top-0 h-screen grid grid-cols-1 lg:grid-cols-12 content-center items-center pt-16 md:pt-20 pb-4 overflow-hidden w-full z-20 px-2 sm:px-4 gap-6 md:gap-8 lg:gap-12">
+          
+          <!-- Left Side: Header & Progress -->
+          <div class="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <div class="mb-6 md:mb-8 mt-4 md:mt-0">
+              <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4 leading-tight">Technical<br class="hidden lg:block"/> Arsenal</h2>
+              <p class="text-sm md:text-base text-zinc-400 leading-relaxed max-w-md mx-auto lg:mx-0">
+                Core competencies across the stack, focusing on performance, scalability, and modern React ecosystems.
+              </p>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="w-full max-w-xs mx-auto lg:mx-0 h-1 bg-zinc-800/80 rounded-full overflow-hidden relative shadow-inner z-20 shrink-0">
+              <div id="skills-progress-bar" class="absolute top-0 left-0 h-full bg-emerald-500 w-0 shadow-[0_0_10px_rgba(16,185,129,0.8)]"></div>
+            </div>
+          </div>
+          
+          <!-- Right Side: Cards Container -->
+          <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 lg:gap-5 relative z-20">
+          
+            <!-- Front End (Step 0) -->
+            <div class="skill-step md:col-span-2 glass-card p-4 md:p-5 flex flex-col transition-all duration-500 ease-out border border-zinc-800/60 relative overflow-hidden">
+              <div class="absolute -top-24 -right-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -z-10"></div>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 shadow-sm border border-emerald-500/30">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200ZM176,88a8,8,0,0,1-8,8H136a8,8,0,0,1,0-16h32A8,8,0,0,1,176,88Zm-61.66,18.34a8,8,0,0,1,0,11.32l-32,32a8,8,0,0,1-11.32-11.32L99.31,112,71.02,83.66a8,8,0,0,1,11.32-11.32Z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-white tracking-tight">Front End</h3>
+              </div>
+              <p class="text-zinc-300 mb-4 text-[13px] md:text-sm flex-grow">Building interactive, high-performance user interfaces with modern ecosystems.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900/90 border border-zinc-700/60 text-[11px] md:text-xs font-medium flex items-center gap-1.5 shadow-sm"><i class="devicon-react-original text-emerald-400 text-sm"></i>ReactJS</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900/90 border border-zinc-700/60 text-[11px] md:text-xs font-medium flex items-center gap-1.5 shadow-sm"><i class="devicon-nextjs-plain text-white text-sm"></i>Next.js</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900/90 border border-zinc-700/60 text-[11px] md:text-xs font-medium flex items-center gap-1.5 shadow-sm"><i class="devicon-redux-original text-purple-400 text-sm"></i>Redux</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900/90 border border-zinc-700/60 text-[11px] md:text-xs font-medium flex items-center gap-1.5 shadow-sm">🐻 Zustand</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900/90 border border-zinc-700/60 text-[11px] md:text-xs font-medium flex items-center gap-1.5 shadow-sm"><i class="devicon-tailwindcss-original text-cyan-400 text-sm"></i>Tailwind</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900/90 border border-zinc-700/60 text-[11px] md:text-xs font-medium flex items-center gap-1.5 shadow-sm"><i class="devicon-antdesign-plain text-blue-400 text-sm"></i>Ant Design</span>
+              </div>
+            </div>
+
+            <!-- Back End (Step 1) -->
+            <div class="skill-step glass-card p-4 md:p-5 flex flex-col transition-all duration-500 ease-out border border-zinc-800/60 relative overflow-hidden">
+              <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -z-10"></div>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 shadow-sm border border-emerald-500/30">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256"><path d="M208,40H48A16,16,0,0,0,32,56v48a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V56A16,16,0,0,0,208,40Zm0,64H48V56H208v48ZM208,136H48a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V152A16,16,0,0,0,208,136Zm0,64H48V152H208v48ZM88,80a8,8,0,1,1-8-8A8,8,0,0,1,88,80Zm0,96a8,8,0,1,1-8-8A8,8,0,0,1,88,176Z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-white tracking-tight">Back End</h3>
+              </div>
+              <p class="text-zinc-300 mb-4 text-[13px] md:text-sm flex-grow">Scalable server-side logic and robust microservices architecture.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900/90 border border-zinc-700/60 text-[11px] md:text-xs font-medium flex items-center gap-1.5 shadow-sm"><i class="devicon-nodejs-plain text-green-500 text-sm"></i>Node.js</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900/90 border border-zinc-700/60 text-[11px] md:text-xs font-medium flex items-center gap-1.5 shadow-sm"><i class="devicon-nestjs-original text-red-500 text-sm"></i>NestJS</span>
+              </div>
+            </div>
+
+            <!-- Databases (Step 2) -->
+            <div class="skill-step glass-card p-4 md:p-5 flex flex-col transition-all duration-500 ease-out border border-zinc-800/60 relative overflow-hidden">
+              <div class="absolute -top-24 -left-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -z-10"></div>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 shadow-sm border border-emerald-500/30">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256"><path d="M128,16C72,16,24,38.2,24,64V192c0,25.8,48,48,104,48s104-22.2,104-48V64C232,38.2,184,16,128,16ZM128,48c46.7,0,88,17.43,88,32s-41.3,32-88,32S40,94.57,40,80,81.3,48,128,48ZM40,192V166.45c22.18,14.65,54.19,23.11,88,23.11s65.82-8.46,88-23.11V192c0,14.57-41.3,32-88,32S40,206.57,40,192ZM128,157.56c-33.81,0-65.82-8.46-88-23.11V108.9c22.18,14.65,54.19,23.1,88,23.1s65.82-8.45,88-23.1v25.55C193.82,149.1,161.81,157.56,128,157.56Z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-white tracking-tight">Databases</h3>
+              </div>
+              <p class="text-zinc-300 mb-4 text-[13px] md:text-sm flex-grow">Managing millions of records with high performance and reliability.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900/90 border border-zinc-700/60 text-[11px] md:text-xs font-medium flex items-center gap-1.5 shadow-sm"><i class="devicon-postgresql-plain text-blue-400 text-sm"></i>PostgreSQL</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900/90 border border-zinc-700/60 text-[11px] md:text-xs font-medium flex items-center gap-1.5 shadow-sm"><i class="devicon-mongodb-plain text-green-500 text-sm"></i>MongoDB</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900/90 border border-zinc-700/60 text-[11px] md:text-xs font-medium flex items-center gap-1.5 shadow-sm"><i class="devicon-mysql-original text-blue-500 text-sm"></i>MySQL</span>
+              </div>
+            </div>
+
+            <!-- DevOps (Step 3) -->
+            <div class="skill-step md:col-span-2 glass-card p-4 md:p-5 flex flex-col transition-all duration-500 ease-out border border-zinc-800/60 relative overflow-hidden">
+              <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -z-10"></div>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 shadow-sm border border-emerald-500/30">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256"><path d="M216,112V64a16,16,0,0,0-16-16H56A16,16,0,0,0,40,64v48a16,16,0,0,0,16,16H200A16,16,0,0,0,216,112Zm-16,0H56V64H200v48Zm16,80v-48a16,16,0,0,0-16-16H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16H200A16,16,0,0,0,216,192Zm-16,0H56V144H200v48ZM88,88a8,8,0,1,1-8-8A8,8,0,0,1,88,88Zm0,80a8,8,0,1,1-8-8A8,8,0,0,1,88,168Z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-white tracking-tight">DevOps & Observability</h3>
+              </div>
+              <p class="text-zinc-300 mb-4 text-[13px] md:text-sm flex-grow">Automated deployments, system monitoring, and proactive issue tracing.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900/90 border border-zinc-700/60 text-[11px] md:text-xs font-medium flex items-center gap-1.5 shadow-sm"><i class="devicon-docker-plain text-blue-500 text-sm"></i>Docker</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900/90 border border-zinc-700/60 text-[11px] md:text-xs font-medium flex items-center gap-1.5 shadow-sm"><i class="devicon-grafana-original text-orange-400 text-sm"></i>Grafana</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900/90 border border-zinc-700/60 text-[11px] md:text-xs font-medium flex items-center gap-1.5 shadow-sm"><i class="devicon-elasticsearch-plain text-yellow-500 text-sm"></i>Elastic (Kibana)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900/90 border border-zinc-700/60 text-[11px] md:text-xs font-medium flex items-center gap-1.5 shadow-sm"><i class="devicon-jira-plain text-blue-400 text-sm"></i>Jira</span>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section (UrBox) -->
+      <section id="exp-urbox" class="relative h-[400vh] w-full snap-start">
+        <div class="sticky top-0 h-screen w-full flex flex-col justify-start pt-24 pb-4 overflow-hidden px-4 md:px-8">
+          <div class="flex justify-center w-full max-w-4xl mx-auto">
+            
+            <!-- UrBox -->
+            <div class="relative w-full min-w-0" id="urbox-card-wrapper">
+              <div class="glass-card min-w-0 w-full p-5 md:p-6 transition-transform duration-100 ease-out">
+                <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-3 mb-4">
+                  <div>
+                    <h3 class="text-xl md:text-2xl font-bold text-white">UrBox</h3>
+                    <p class="text-base md:text-lg text-emerald-400 font-medium mt-0.5">Fullstack Engineer</p>
+                    <p class="text-xs md:text-sm text-zinc-400 mt-2 max-w-xl leading-relaxed">
+                      Urbox is Vietnam’s leading digital gifting and loyalty marketing solution provider, connecting a vast network of 600+ lifestyle brands and 15,000+ outlets to enterprise clients through an innovative "Loyalty-as-a-Service" (LaaS) ecosystem.
+                    </p>
+                  </div>
+                  <div class="px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 font-medium text-xs whitespace-nowrap shrink-0">
+                    Aug 2024 — Present
+                  </div>
+                </div>
+                <div class="h-px w-full bg-gradient-to-r from-zinc-700/50 to-transparent mb-4"></div>
+                
+                <!-- Enterprise Clients Marquee -->
+                <div class="mb-5 overflow-hidden w-full">
+                  <p class="text-[10px] font-semibold text-zinc-500 uppercase tracking-wider mb-2">Key Enterprise Clients</p>
+                  <div class="relative w-full group">
+                    <div class="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-[rgba(39,39,42,0.8)] to-transparent z-10 pointer-events-none"></div>
+                    <div class="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-[rgba(39,39,42,0.8)] to-transparent z-10 pointer-events-none"></div>
+                    <div class="animate-marquee gap-2 py-0.5">
+                      <!-- Group 1 -->
+                      <div class="flex items-center gap-2 shrink-0">
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-zinc-900/80 border border-zinc-700/50 rounded-md shadow-sm"><img src="https://www.google.com/s2/favicons?domain=visa.com&sz=64" class="w-4 h-4 rounded-sm object-contain bg-white p-0.5" alt="Visa"><span class="text-xs font-medium text-zinc-300">Visa D2C</span></div>
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-zinc-900/80 border border-zinc-700/50 rounded-md shadow-sm"><img src="https://www.google.com/s2/favicons?domain=acb.com.vn&sz=64" class="w-4 h-4 rounded-sm object-contain bg-white p-0.5" alt="ACB"><span class="text-xs font-medium text-zinc-300">ACB</span></div>
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-zinc-900/80 border border-zinc-700/50 rounded-md shadow-sm"><img src="https://www.google.com/s2/favicons?domain=vpbank.com.vn&sz=64" class="w-4 h-4 rounded-sm object-contain bg-white p-0.5" alt="VPBank"><span class="text-xs font-medium text-zinc-300">VPBank</span></div>
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-zinc-900/80 border border-zinc-700/50 rounded-md shadow-sm"><img src="https://www.google.com/s2/favicons?domain=namabank.com.vn&sz=64" class="w-4 h-4 rounded-sm object-contain bg-white p-0.5" alt="Nam A Bank"><span class="text-xs font-medium text-zinc-300">Nam A Bank</span></div>
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-zinc-900/80 border border-zinc-700/50 rounded-md shadow-sm"><img src="https://www.google.com/s2/favicons?domain=viettel.com.vn&sz=64" class="w-4 h-4 rounded-sm object-contain bg-white p-0.5" alt="Viettel"><span class="text-xs font-medium text-zinc-300">Viettel</span></div>
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-zinc-900/80 border border-zinc-700/50 rounded-md shadow-sm"><img src="https://www.google.com/s2/favicons?domain=vib.com.vn&sz=64" class="w-4 h-4 rounded-sm object-contain bg-white p-0.5" alt="VIB"><span class="text-xs font-medium text-zinc-300">VIB</span></div>
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-zinc-900/80 border border-zinc-700/50 rounded-md shadow-sm"><img src="https://www.google.com/s2/favicons?domain=global.jcb&sz=64" class="w-4 h-4 rounded-sm object-contain bg-white p-0.5" alt="JCB"><span class="text-xs font-medium text-zinc-300">JCB</span></div>
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-zinc-900/80 border border-zinc-700/50 rounded-md shadow-sm"><img src="https://www.google.com/s2/favicons?domain=shell.com&sz=64" class="w-4 h-4 rounded-sm object-contain bg-white p-0.5" alt="Shell"><span class="text-xs font-medium text-zinc-300">Shell</span></div>
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-zinc-900/80 border border-zinc-700/50 rounded-md shadow-sm"><img src="https://www.google.com/s2/favicons?domain=abbott.com&sz=64" class="w-4 h-4 rounded-sm object-contain bg-white p-0.5" alt="Abbott"><span class="text-xs font-medium text-zinc-300">Abbott</span></div>
+                      </div>
+                      <!-- Group 2 (Duplicate) -->
+                      <div class="flex items-center gap-2 shrink-0">
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-zinc-900/80 border border-zinc-700/50 rounded-md shadow-sm"><img src="https://www.google.com/s2/favicons?domain=visa.com&sz=64" class="w-4 h-4 rounded-sm object-contain bg-white p-0.5" alt="Visa"><span class="text-xs font-medium text-zinc-300">Visa D2C</span></div>
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-zinc-900/80 border border-zinc-700/50 rounded-md shadow-sm"><img src="https://www.google.com/s2/favicons?domain=acb.com.vn&sz=64" class="w-4 h-4 rounded-sm object-contain bg-white p-0.5" alt="ACB"><span class="text-xs font-medium text-zinc-300">ACB</span></div>
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-zinc-900/80 border border-zinc-700/50 rounded-md shadow-sm"><img src="https://www.google.com/s2/favicons?domain=vpbank.com.vn&sz=64" class="w-4 h-4 rounded-sm object-contain bg-white p-0.5" alt="VPBank"><span class="text-xs font-medium text-zinc-300">VPBank</span></div>
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-zinc-900/80 border border-zinc-700/50 rounded-md shadow-sm"><img src="https://www.google.com/s2/favicons?domain=namabank.com.vn&sz=64" class="w-4 h-4 rounded-sm object-contain bg-white p-0.5" alt="Nam A Bank"><span class="text-xs font-medium text-zinc-300">Nam A Bank</span></div>
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-zinc-900/80 border border-zinc-700/50 rounded-md shadow-sm"><img src="https://www.google.com/s2/favicons?domain=viettel.com.vn&sz=64" class="w-4 h-4 rounded-sm object-contain bg-white p-0.5" alt="Viettel"><span class="text-xs font-medium text-zinc-300">Viettel</span></div>
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-zinc-900/80 border border-zinc-700/50 rounded-md shadow-sm"><img src="https://www.google.com/s2/favicons?domain=vib.com.vn&sz=64" class="w-4 h-4 rounded-sm object-contain bg-white p-0.5" alt="VIB"><span class="text-xs font-medium text-zinc-300">VIB</span></div>
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-zinc-900/80 border border-zinc-700/50 rounded-md shadow-sm"><img src="https://www.google.com/s2/favicons?domain=global.jcb&sz=64" class="w-4 h-4 rounded-sm object-contain bg-white p-0.5" alt="JCB"><span class="text-xs font-medium text-zinc-300">JCB</span></div>
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-zinc-900/80 border border-zinc-700/50 rounded-md shadow-sm"><img src="https://www.google.com/s2/favicons?domain=shell.com&sz=64" class="w-4 h-4 rounded-sm object-contain bg-white p-0.5" alt="Shell"><span class="text-xs font-medium text-zinc-300">Shell</span></div>
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-zinc-900/80 border border-zinc-700/50 rounded-md shadow-sm"><img src="https://www.google.com/s2/favicons?domain=abbott.com&sz=64" class="w-4 h-4 rounded-sm object-contain bg-white p-0.5" alt="Abbott"><span class="text-xs font-medium text-zinc-300">Abbott</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="relative py-1 pl-1" id="urbox-bullets-container">
+                  <!-- Vertical Progress Line -->
+                  <div class="absolute left-[8px] top-3 bottom-3 w-[2px] bg-zinc-800/80 rounded-full overflow-hidden">
+                    <div id="urbox-progress-line" class="absolute top-0 left-0 w-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)] h-0"></div>
+                  </div>
+                  
+                  <ul class="space-y-4 text-zinc-300 relative z-10">
+                    <li class="urbox-bullet flex gap-4 transition-all duration-500">
+                      <div class="relative mt-[5px] shrink-0 w-2.5 h-2.5 flex items-center justify-center">
+                        <div class="bullet-dot w-1.5 h-1.5 bg-zinc-700 rounded-full transition-colors duration-500 z-10"></div>
+                        <div class="bullet-glow absolute inset-0 bg-emerald-500 rounded-full opacity-0 scale-150 blur-sm transition-all duration-500"></div>
+                      </div>
+                      <span class="text-sm leading-snug bullet-text transition-colors duration-500">Engineered and deployed white-label Loyalty platforms for top-tier financial institutions, ensuring high availability for millions of reward transactions.</span>
+                    </li>
+                    <li class="urbox-bullet flex gap-4 transition-all duration-500">
+                      <div class="relative mt-[5px] shrink-0 w-2.5 h-2.5 flex items-center justify-center">
+                        <div class="bullet-dot w-1.5 h-1.5 bg-zinc-700 rounded-full transition-colors duration-500 z-10"></div>
+                        <div class="bullet-glow absolute inset-0 bg-emerald-500 rounded-full opacity-0 scale-150 blur-sm transition-all duration-500"></div>
+                      </div>
+                      <span class="text-sm leading-snug bullet-text transition-colors duration-500">Developed comprehensive CRM dashboards using <strong>Next.js, Tailwind CSS, and Zustand</strong> to empower clients to manage loyalty campaigns and customer data.</span>
+                    </li>
+                    <li class="urbox-bullet flex gap-4 transition-all duration-500">
+                      <div class="relative mt-[5px] shrink-0 w-2.5 h-2.5 flex items-center justify-center">
+                        <div class="bullet-dot w-1.5 h-1.5 bg-zinc-700 rounded-full transition-colors duration-500 z-10"></div>
+                        <div class="bullet-glow absolute inset-0 bg-emerald-500 rounded-full opacity-0 scale-150 blur-sm transition-all duration-500"></div>
+                      </div>
+                      <span class="text-sm leading-snug bullet-text transition-colors duration-500">Integrated advanced <strong>OCR technology</strong> to automate point collection through receipt scanning.</span>
+                    </li>
+                    <li class="urbox-bullet flex gap-4 transition-all duration-500">
+                      <div class="relative mt-[5px] shrink-0 w-2.5 h-2.5 flex items-center justify-center">
+                        <div class="bullet-dot w-1.5 h-1.5 bg-zinc-700 rounded-full transition-colors duration-500 z-10"></div>
+                        <div class="bullet-glow absolute inset-0 bg-emerald-500 rounded-full opacity-0 scale-150 blur-sm transition-all duration-500"></div>
+                      </div>
+                      <span class="text-sm leading-snug bullet-text transition-colors duration-500">Monitored system health and proactively traced production bugs using <strong>Grafana and Kibana</strong>.</span>
+                    </li>
+                    <li class="urbox-bullet flex gap-4 transition-all duration-500">
+                      <div class="relative mt-[5px] shrink-0 w-2.5 h-2.5 flex items-center justify-center">
+                        <div class="bullet-dot w-1.5 h-1.5 bg-zinc-700 rounded-full transition-colors duration-500 z-10"></div>
+                        <div class="bullet-glow absolute inset-0 bg-emerald-500 rounded-full opacity-0 scale-150 blur-sm transition-all duration-500"></div>
+                      </div>
+                      <span class="text-sm leading-snug bullet-text transition-colors duration-500">Handled large-scale data processing tasks in <strong>PostgreSQL and MongoDB</strong>, managing millions of records with a focus on database performance and scalability.</span>
+                    </li>
+                    <li class="urbox-bullet flex gap-4 transition-all duration-500">
+                      <div class="relative mt-[5px] shrink-0 w-2.5 h-2.5 flex items-center justify-center">
+                        <div class="bullet-dot w-1.5 h-1.5 bg-zinc-700 rounded-full transition-colors duration-500 z-10"></div>
+                        <div class="bullet-glow absolute inset-0 bg-emerald-500 rounded-full opacity-0 scale-150 blur-sm transition-all duration-500"></div>
+                      </div>
+                      <span class="text-sm leading-snug bullet-text transition-colors duration-500">Optimized Next.js build performance by utilizing <strong>patch-package</strong> to intercept the build pipeline and exclude unused pages, significantly accelerating deployment cycles.</span>
+                    </li>
+                    <li class="urbox-bullet flex gap-4 transition-all duration-500">
+                      <div class="relative mt-[5px] shrink-0 w-2.5 h-2.5 flex items-center justify-center">
+                        <div class="bullet-dot w-1.5 h-1.5 bg-zinc-700 rounded-full transition-colors duration-500 z-10"></div>
+                        <div class="bullet-glow absolute inset-0 bg-emerald-500 rounded-full opacity-0 scale-150 blur-sm transition-all duration-500"></div>
+                      </div>
+                      <span class="text-sm leading-snug bullet-text transition-colors duration-500">Developed and maintained high-performance <strong>Zalo Mini Apps</strong>, expanding the platform's reach and improving user accessibility within the Zalo ecosystem.</span>
+                    </li>
+                    <li class="urbox-bullet flex gap-4 transition-all duration-500">
+                      <div class="relative mt-[5px] shrink-0 w-2.5 h-2.5 flex items-center justify-center">
+                        <div class="bullet-dot w-1.5 h-1.5 bg-zinc-700 rounded-full transition-colors duration-500 z-10"></div>
+                        <div class="bullet-glow absolute inset-0 bg-emerald-500 rounded-full opacity-0 scale-150 blur-sm transition-all duration-500"></div>
+                      </div>
+                      <span class="text-sm leading-snug bullet-text transition-colors duration-500">Designed and implemented reusable <strong>SDKs and common APIs</strong> for loyalty games, enabling seamless integration across multiple projects via NestJS module injection and standardizing security with custom guards.</span>
+                    </li>
+                    <li class="urbox-bullet flex gap-4 transition-all duration-500">
+                      <div class="relative mt-[5px] shrink-0 w-2.5 h-2.5 flex items-center justify-center">
+                        <div class="bullet-dot w-1.5 h-1.5 bg-zinc-700 rounded-full transition-colors duration-500 z-10"></div>
+                        <div class="bullet-glow absolute inset-0 bg-emerald-500 rounded-full opacity-0 scale-150 blur-sm transition-all duration-500"></div>
+                      </div>
+                      <span class="text-sm leading-snug bullet-text transition-colors duration-500">Pioneered a SaaS-driven white-label template system, shifting from manual coding to a configuration-based approach that allows enterprise clients to launch loyalty campaigns autonomously.</span>
+                    </li>
+                  </ul>
+                </div>
+                  
+                  <!-- Featured Projects (Carousel) -->
+                  <div class="mt-8 pt-6 border-t border-zinc-800/50 relative z-10 w-full overflow-hidden">
+                    <div class="flex items-center justify-between mb-4">
+                      <h4 class="text-xs font-bold text-zinc-500 uppercase tracking-widest">Featured Projects</h4>
+                      <div class="flex gap-2">
+                        <!-- Navigation indicators for UX -->
+                        <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+                        <div class="w-2 h-2 rounded-full bg-zinc-700"></div>
+                      </div>
+                    </div>
+                    
+                    <!-- Carousel Container -->
+                    <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
+                      
+                      <!-- Visa Ecosystem Group (Single Item with Gallery) -->
+                      <div class="group shrink-0 w-[85%] sm:w-[360px] snap-center block relative overflow-hidden rounded-xl border border-zinc-800/60 bg-zinc-900/40 hover:bg-zinc-800/80 transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.1)] hover:-translate-y-1">
+                        <div class="flex flex-col h-full">
+                          <a href="/visa-project.png" class="glightbox aspect-video w-full overflow-hidden bg-zinc-950 relative border-b border-zinc-800/50 block" data-gallery="visa-gallery" data-title="Visa D2C Web App" data-description="Includes D2C web app and internal admin portals.">
+                            <!-- Main Cover Image -->
+                            <img src="/visa-project.png" alt="Visa Ecosystem" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100" />
+                            
+                            <!-- Gallery Overlay Badge -->
+                            <div class="absolute bottom-3 right-3 bg-zinc-900/80 backdrop-blur-sm border border-zinc-700/50 rounded-full px-3 py-1 flex items-center gap-1.5 text-[10px] font-medium text-zinc-300">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM216,56V158.25l-51.52-47.56a12,12,0,0,0-16.22,0L40,210.68V56ZM40,200h0Zm176,0H51.49l104.9-96.83L216,158.07V200ZM76,112A16,16,0,1,1,92,96,16,16,0,0,1,76,112Z"></path></svg>
+                              View Gallery (4)
+                            </div>
+                          </a>
+                          
+                          <div class="p-5 flex flex-col flex-1 justify-between bg-zinc-900/50">
+                            <div>
+                              <div class="flex items-center justify-between mb-2">
+                                <h5 class="font-bold text-base text-white group-hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                                  <img src="/visa-logo.svg" class="h-6 w-auto" alt="Visa">
+                                  Visa D2C
+                                </h5>
+                                <a href="https://my.visa.com" target="_blank" class="flex items-center gap-1 text-[10px] font-medium px-2.5 py-1 rounded-full bg-zinc-800 text-zinc-300 hover:bg-emerald-500 hover:text-white transition-colors" title="Visit Web App">
+                                  Visit
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 256 256"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></svg>
+                                </a>
+                              </div>
+                              <p class="text-xs text-zinc-400 mb-4 line-clamp-2">A complete suite including the D2C consumer web app and multiple internal admin portals.</p>
+                            </div>
+                            
+                            <div class="flex gap-2 mt-auto">
+                              <span class="text-[10px] px-2 py-1 rounded bg-zinc-800/80 text-zinc-300">D2C Web</span>
+                              <span class="text-[10px] px-2 py-1 rounded bg-zinc-800/80 text-zinc-300">Admin Portals</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Hidden Gallery Items for Visa -->
+                      <a href="/visa-portal-1.png" class="glightbox hidden" data-gallery="visa-gallery" data-title="Homepage Configuration Portal" data-description="Internal tool for admins to configure the Visa D2C homepage layout."></a>
+                      <a href="/visa-portal-2.png" class="glightbox hidden" data-gallery="visa-gallery" data-title="Program Configuration" data-description="Interface for editing campaign rules, validity, and publishing statuses."></a>
+                      <a href="/visa-portal-3.png" class="glightbox hidden" data-gallery="visa-gallery" data-title="Content Management System" data-description="Overview dashboard for tracking all campaigns and redemption methods."></a>
+
+                      <!-- Visa ZMA Project -->
+                      <div class="group shrink-0 w-[85%] sm:w-[360px] snap-center block relative overflow-hidden rounded-xl border border-zinc-800/60 bg-zinc-900/40 hover:bg-zinc-800/80 transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.1)] hover:-translate-y-1">
+                        <div class="flex flex-col h-full">
+                          <a href="/zma-1.png" class="glightbox aspect-video w-full overflow-hidden bg-zinc-950 relative border-b border-zinc-800/50 block" data-gallery="zma-gallery" data-title="Visa Zalo Mini App" data-description="Convenient Zalo Mini App for Visa customers.">
+                            <!-- Blurred Background for Mobile Image -->
+                            <div class="absolute inset-0 z-0 overflow-hidden">
+                              <img src="/zma-1.png" alt="" class="w-full h-full object-cover opacity-30 blur-xl scale-110" />
+                            </div>
+                            <!-- Main Sharp Image -->
+                            <img src="/zma-1.png" alt="Visa ZMA" class="relative z-10 w-full h-full object-contain object-top group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100 drop-shadow-2xl py-2" />
+                            
+                            <!-- Gallery Overlay Badge -->
+                            <div class="absolute bottom-3 right-3 bg-zinc-900/80 backdrop-blur-sm border border-zinc-700/50 rounded-full px-3 py-1 flex items-center gap-1.5 text-[10px] font-medium text-zinc-300">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM216,56V158.25l-51.52-47.56a12,12,0,0,0-16.22,0L40,210.68V56ZM40,200h0Zm176,0H51.49l104.9-96.83L216,158.07V200ZM76,112A16,16,0,1,1,92,96,16,16,0,0,1,76,112Z"></path></svg>
+                              View Gallery (5)
+                            </div>
+                          </a>
+                          
+                          <div class="p-5 flex flex-col flex-1 justify-between bg-zinc-900/50">
+                            <div>
+                              <div class="flex items-center justify-between mb-2">
+                                <h5 class="font-bold text-base text-white group-hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                                  <img src="/visa-logo.svg" class="h-6 w-auto" alt="Visa">
+                                  Visa ZMA
+                                </h5>
+                                <a href="https://zalo.me/s/2780212615440848288" target="_blank" class="flex items-center gap-1 text-[10px] font-medium px-2.5 py-1 rounded-full bg-zinc-800 text-zinc-300 hover:bg-emerald-500 hover:text-white transition-colors" title="Visit Zalo Mini App">
+                                  Visit
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 256 256"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></svg>
+                                </a>
+                              </div>
+                              <p class="text-xs text-zinc-400 mb-4 line-clamp-2">A lightweight Zalo Mini App delivering seamless Visa experiences without installing a new app.</p>
+                            </div>
+                            
+                            <div class="flex gap-2 mt-auto">
+                              <span class="text-[10px] px-2 py-1 rounded bg-zinc-800/80 text-zinc-300">Zalo Mini App</span>
+                              <span class="text-[10px] px-2 py-1 rounded bg-zinc-800/80 text-zinc-300">Visa</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Hidden Gallery Items for Visa ZMA -->
+                      <a href="/zma-2.png" class="glightbox hidden" data-gallery="zma-gallery" data-title="Campaign Details" data-description="Spend and Earn Miles campaign integration."></a>
+                      <a href="/zma-3.png" class="glightbox hidden" data-gallery="zma-gallery" data-title="Privileges List" data-description="Filtering and exploring available Visa benefits."></a>
+                      <a href="/zma-4.png" class="glightbox hidden" data-gallery="zma-gallery" data-title="My Benefits" data-description="Tracking earned vouchers and activity history."></a>
+                      <a href="/zma-5.png" class="glightbox hidden" data-gallery="zma-gallery" data-title="Booking Details" data-description="Seamless booking flow inside the mini app."></a>
+
+                      <!-- JCB Premium Service Project -->
+                      <div class="group shrink-0 w-[85%] sm:w-[360px] snap-center block relative overflow-hidden rounded-xl border border-zinc-800/60 bg-zinc-900/40 hover:bg-zinc-800/80 transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.1)] hover:-translate-y-1">
+                        <div class="flex flex-col h-full">
+                          <a href="/jcb-1.png" class="glightbox aspect-video w-full overflow-hidden bg-zinc-950 relative border-b border-zinc-800/50 block" data-gallery="jcb-gallery" data-title="JCB Premium Service" data-description="Exclusive privileges platform for JCB Platinum and Ultimate cardholders.">
+                            <!-- Blurred Background for Mobile Image -->
+                            <div class="absolute inset-0 z-0 overflow-hidden">
+                              <img src="/jcb-1.png" alt="" class="w-full h-full object-cover opacity-30 blur-xl scale-110" />
+                            </div>
+                            <!-- Main Sharp Image -->
+                            <img src="/jcb-1.png" alt="JCB Premium Service" class="relative z-10 w-full h-full object-contain object-top group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100 drop-shadow-2xl py-2" />
+                            
+                            <!-- Gallery Overlay Badge -->
+                            <div class="absolute bottom-3 right-3 bg-zinc-900/80 backdrop-blur-sm border border-zinc-700/50 rounded-full px-3 py-1 flex items-center gap-1.5 text-[10px] font-medium text-zinc-300">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM216,56V158.25l-51.52-47.56a12,12,0,0,0-16.22,0L40,210.68V56ZM40,200h0Zm176,0H51.49l104.9-96.83L216,158.07V200ZM76,112A16,16,0,1,1,92,96,16,16,0,0,1,76,112Z"></path></svg>
+                              View Gallery (5)
+                            </div>
+                          </a>
+                          
+                          <div class="p-5 flex flex-col flex-1 justify-between bg-zinc-900/50">
+                            <div>
+                              <div class="flex items-center justify-between mb-2">
+                                <h5 class="font-bold text-base text-white group-hover:text-emerald-400 transition-colors flex items-center gap-2">
+                                  <img src="/jcb-logo.png" class="h-6 w-auto rounded bg-white p-0.5 object-contain" alt="JCB">
+                                  JCB Premium
+                                </h5>
+                              </div>
+                              <p class="text-xs text-zinc-400 mb-4 line-clamp-2">Mobile platform offering high-end privileges like lounge access, dining, and hotel stays for JCB Platinum & Ultimate cards.</p>
+                            </div>
+                            
+                            <div class="flex gap-2 mt-auto">
+                              <span class="text-[10px] px-2 py-1 rounded bg-zinc-800/80 text-zinc-300">Mobile UI</span>
+                              <span class="text-[10px] px-2 py-1 rounded bg-zinc-800/80 text-zinc-300">Privileges</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Hidden Gallery Items for JCB -->
+                      <a href="/jcb-2.png" class="glightbox hidden" data-gallery="jcb-gallery" data-title="Airport Service Booking" data-description="Seamless booking flow for meet and greet services."></a>
+                      <a href="/jcb-3.png" class="glightbox hidden" data-gallery="jcb-gallery" data-title="Resort Experience" data-description="Claiming complimentary nights at premium resorts."></a>
+                      <a href="/jcb-4.png" class="glightbox hidden" data-gallery="jcb-gallery" data-title="Account Management" data-description="User profile and settings interface."></a>
+                      <a href="/jcb-5.png" class="glightbox hidden" data-gallery="jcb-gallery" data-title="Dining Offers" data-description="Discovering discounts at high-end Japanese restaurants."></a>
+
+                      <!-- Jomo Project -->
+                      <div class="group shrink-0 w-[85%] sm:w-[360px] snap-center block relative overflow-hidden rounded-xl border border-zinc-800/60 bg-zinc-900/40 hover:bg-zinc-800/80 transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.1)] hover:-translate-y-1">
+                        <div class="flex flex-col h-full">
+                          <a href="https://jomo.urbox.vn" target="_blank" class="aspect-video w-full overflow-hidden bg-zinc-950 relative border-b border-zinc-800/50 block">
+                            <img src="/jomo-project.png" alt="Jomo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100 object-left-top" />
+                          </a>
+                          
+                          <div class="p-5 flex flex-col flex-1 justify-between bg-zinc-900/50">
+                            <div>
+                              <div class="flex items-center justify-between mb-2">
+                                <h5 class="font-bold text-base text-white group-hover:text-emerald-400 transition-colors flex items-center gap-2">
+                                  <img src="https://static.urbox.vn/whitelabel/jomo/images/jomo-reverse-variant.png" class="h-5 w-auto object-contain" alt="Jomo">
+                                </h5>
+                                <a href="https://jomo.urbox.vn" target="_blank" class="flex items-center gap-1 text-[10px] font-medium px-2.5 py-1 rounded-full bg-zinc-800 text-zinc-300 hover:bg-emerald-500 hover:text-white transition-colors" title="Visit Web App">
+                                  Visit
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 256 256"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></svg>
+                                </a>
+                              </div>
+                              <p class="text-xs text-zinc-400 mb-4 line-clamp-2">Comprehensive gifting & lifestyle rewards platform.</p>
+                            </div>
+                            
+                            <p class="text-[10px] text-zinc-500 mt-auto">jomo.urbox.vn</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- ACB Privilege Banking -->
+                      <div class="group shrink-0 w-[85%] sm:w-[360px] snap-center block relative overflow-hidden rounded-xl border border-zinc-800/60 bg-zinc-900/40 hover:bg-zinc-800/80 transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.1)] hover:-translate-y-1">
+                        <div class="flex flex-col h-full">
+                          <a href="/acb-1.png" class="glightbox aspect-video w-full overflow-hidden bg-zinc-950 relative border-b border-zinc-800/50 block" data-gallery="acb-gallery" data-title="ACB Privilege Banking" data-description="Exclusive privileges app for ACB VIP customers.">
+                            <!-- Main Cover Image with Blurred Background Trick -->
+                            <div class="absolute inset-0 z-0 overflow-hidden">
+                              <img src="/acb-1.png" alt="" class="w-full h-full object-cover opacity-30 blur-xl scale-110" />
+                            </div>
+                            <img src="/acb-1.png" alt="ACB Privilege Banking" class="relative z-10 w-full h-full object-contain object-top group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100 drop-shadow-2xl py-2" />
+                            
+                            <!-- Gallery Overlay Badge -->
+                            <div class="absolute bottom-3 right-3 bg-zinc-900/80 backdrop-blur-sm border border-zinc-700/50 rounded-full px-3 py-1 flex items-center gap-1.5 text-[10px] font-medium text-zinc-300">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM216,56V158.25l-51.52-47.56a12,12,0,0,0-16.22,0L40,210.68V56ZM40,200h0Zm176,0H51.49l104.9-96.83L216,158.07V200ZM76,112A16,16,0,1,1,92,96,16,16,0,0,1,76,112Z"></path></svg>
+                              View Gallery (5)
+                            </div>
+                          </a>
+                          
+                          <div class="p-5 flex flex-col flex-1 justify-between bg-zinc-900/50">
+                            <div>
+                              <div class="flex items-center justify-between mb-2">
+                                <h5 class="font-bold text-base text-white group-hover:text-emerald-400 transition-colors flex items-center gap-2">
+                                  <img src="/acb-logo.png" class="h-6 w-auto rounded object-contain bg-white p-0.5" alt="ACB">
+                                  ACB Privilege
+                                </h5>
+                              </div>
+                              <p class="text-xs text-zinc-400 mb-4 line-clamp-2">Mobile experience for VIP customers to manage and redeem exclusive privileges.</p>
+                            </div>
+                            
+                            <div class="flex gap-2 mt-auto">
+                              <span class="text-[10px] px-2 py-1 rounded bg-zinc-800/80 text-zinc-300">Mobile UI</span>
+                              <span class="text-[10px] px-2 py-1 rounded bg-zinc-800/80 text-zinc-300">Loyalty</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Hidden Gallery Items for ACB -->
+                      <a href="/acb-2.png" class="glightbox hidden" data-gallery="acb-gallery" data-title="Privilege Selection" data-description="Browsing available privileges based on membership tier."></a>
+                      <a href="/acb-3.png" class="glightbox hidden" data-gallery="acb-gallery" data-title="Location & Details" data-description="Viewing partner details and locations on the map."></a>
+                      <a href="/acb-4.png" class="glightbox hidden" data-gallery="acb-gallery" data-title="My Privileges" data-description="Managing claimed privileges and vouchers."></a>
+                      <a href="/acb-5.png" class="glightbox hidden" data-gallery="acb-gallery" data-title="Booking Service" data-description="Direct booking interface for premium services."></a>
+
+                      <!-- Viettel Vop Project -->
+                      <div class="group shrink-0 w-[85%] sm:w-[360px] snap-center block relative overflow-hidden rounded-xl border border-zinc-800/60 bg-zinc-900/40 hover:bg-zinc-800/80 transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.1)] hover:-translate-y-1">
+                        <div class="flex flex-col h-full">
+                          <a href="/viettel-1.png" class="glightbox aspect-video w-full overflow-hidden bg-zinc-950 relative border-b border-zinc-800/50 block" data-gallery="viettel-gallery" data-title="Viettel Vop" data-description="Voucher and loyalty points platform for Viettel users.">
+                            <!-- Blurred Background for Mobile Image -->
+                            <div class="absolute inset-0 z-0 overflow-hidden">
+                              <img src="/viettel-1.png" alt="" class="w-full h-full object-cover opacity-30 blur-xl scale-110" />
+                            </div>
+                            <!-- Main Sharp Image -->
+                            <img src="/viettel-1.png" alt="Viettel Vop" class="relative z-10 w-full h-full object-contain object-top group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100 drop-shadow-2xl py-2" />
+                            
+                            <!-- Gallery Overlay Badge -->
+                            <div class="absolute bottom-3 right-3 bg-zinc-900/80 backdrop-blur-sm border border-zinc-700/50 rounded-full px-3 py-1 flex items-center gap-1.5 text-[10px] font-medium text-zinc-300">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM216,56V158.25l-51.52-47.56a12,12,0,0,0-16.22,0L40,210.68V56ZM40,200h0Zm176,0H51.49l104.9-96.83L216,158.07V200ZM76,112A16,16,0,1,1,92,96,16,16,0,0,1,76,112Z"></path></svg>
+                              View Gallery (5)
+                            </div>
+                          </a>
+                          
+                          <div class="p-5 flex flex-col flex-1 justify-between bg-zinc-900/50">
+                            <div>
+                              <div class="flex items-center justify-between mb-2">
+                                <h5 class="font-bold text-base text-white group-hover:text-emerald-400 transition-colors flex items-center gap-2">
+                                  <img src="/viettel-logo.png" class="h-6 w-auto rounded object-contain" alt="Viettel">
+                                  Viettel Vop
+                                </h5>
+                              </div>
+                              <p class="text-xs text-zinc-400 mb-4 line-clamp-2">Integrated loyalty platform for Viettel users to earn points, link cards, and redeem brand vouchers.</p>
+                            </div>
+                            
+                            <div class="flex gap-2 mt-auto">
+                              <span class="text-[10px] px-2 py-1 rounded bg-zinc-800/80 text-zinc-300">Mobile UI</span>
+                              <span class="text-[10px] px-2 py-1 rounded bg-zinc-800/80 text-zinc-300">Vouchers</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Hidden Gallery Items for Viettel Vop -->
+                      <a href="/viettel-2.png" class="glightbox hidden" data-gallery="viettel-gallery" data-title="Card Linking" data-description="Linking cards to earn additional reward points."></a>
+                      <a href="/viettel-3.png" class="glightbox hidden" data-gallery="viettel-gallery" data-title="Brand Offers" data-description="Discovering promotional offers by brand categories."></a>
+                      <a href="/viettel-4.png" class="glightbox hidden" data-gallery="viettel-gallery" data-title="My Gifts" data-description="Managing claimed vouchers and rewards."></a>
+                      <a href="/viettel-5.png" class="glightbox hidden" data-gallery="viettel-gallery" data-title="Voucher Details" data-description="Redeeming a specific voucher with a barcode/QR code."></a>
+
+                      <!-- Eximbank Loyalty Project -->
+                      <div class="group shrink-0 w-[85%] sm:w-[360px] snap-center block relative overflow-hidden rounded-xl border border-zinc-800/60 bg-zinc-900/40 hover:bg-zinc-800/80 transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.1)] hover:-translate-y-1">
+                        <div class="flex flex-col h-full">
+                          <a href="/eximbank-1.png" class="glightbox aspect-video w-full overflow-hidden bg-zinc-950 relative border-b border-zinc-800/50 block" data-gallery="eximbank-gallery" data-title="Eximbank Loyalty" data-description="Reward points redemption platform for Eximbank customers.">
+                            <!-- Blurred Background for Mobile Image -->
+                            <div class="absolute inset-0 z-0 overflow-hidden">
+                              <img src="/eximbank-1.png" alt="" class="w-full h-full object-cover opacity-30 blur-xl scale-110" />
+                            </div>
+                            <!-- Main Sharp Image -->
+                            <img src="/eximbank-1.png" alt="Eximbank Loyalty" class="relative z-10 w-full h-full object-contain object-top group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100 drop-shadow-2xl py-2" />
+                            
+                            <!-- Gallery Overlay Badge -->
+                            <div class="absolute bottom-3 right-3 bg-zinc-900/80 backdrop-blur-sm border border-zinc-700/50 rounded-full px-3 py-1 flex items-center gap-1.5 text-[10px] font-medium text-zinc-300">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM216,56V158.25l-51.52-47.56a12,12,0,0,0-16.22,0L40,210.68V56ZM40,200h0Zm176,0H51.49l104.9-96.83L216,158.07V200ZM76,112A16,16,0,1,1,92,96,16,16,0,0,1,76,112Z"></path></svg>
+                              View Gallery (5)
+                            </div>
+                          </a>
+                          
+                          <div class="p-5 flex flex-col flex-1 justify-between bg-zinc-900/50">
+                            <div>
+                              <div class="flex items-center justify-between mb-2">
+                                <h5 class="font-bold text-base text-white group-hover:text-emerald-400 transition-colors flex items-center gap-2">
+                                  <img src="/eximbank-logo.png" class="h-6 w-auto rounded object-contain bg-white p-0.5" alt="Eximbank">
+                                  Eximbank Loyalty
+                                </h5>
+                              </div>
+                              <p class="text-xs text-zinc-400 mb-4 line-clamp-2">Mobile platform allowing Eximbank customers to check points and redeem high-value physical gifts and vouchers.</p>
+                            </div>
+                            
+                            <div class="flex gap-2 mt-auto">
+                              <span class="text-[10px] px-2 py-1 rounded bg-zinc-800/80 text-zinc-300">Mobile UI</span>
+                              <span class="text-[10px] px-2 py-1 rounded bg-zinc-800/80 text-zinc-300">Rewards</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Hidden Gallery Items for Eximbank -->
+                      <a href="/eximbank-2.png" class="glightbox hidden" data-gallery="eximbank-gallery" data-title="Product Details" data-description="Detailed specifications for a physical reward item."></a>
+                      <a href="/eximbank-3.png" class="glightbox hidden" data-gallery="eximbank-gallery" data-title="Physical Gifts Catalog" data-description="Browsing available electronics, appliances, and lifestyle rewards."></a>
+                      <a href="/eximbank-4.png" class="glightbox hidden" data-gallery="eximbank-gallery" data-title="Voucher Denominations" data-description="Selecting the value for brand voucher redemption."></a>
+                      <a href="/eximbank-5.png" class="glightbox hidden" data-gallery="eximbank-gallery" data-title="Brand Categories" data-description="Filtering available brands by category."></a>
+
+                    </div>
+                  </div>
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section (CyberSoft) -->
+      <section id="exp-cybersoft" class="relative h-[250vh] w-full snap-start">
+        <div class="sticky top-0 h-screen w-full flex flex-col justify-start pt-24 pb-4 overflow-hidden px-4 md:px-8">
+          <div class="flex justify-center w-full max-w-4xl mx-auto">
+            
+            <!-- CyberSoft -->
+            <div class="relative w-full min-w-0" id="cybersoft-card-wrapper">
+              <div class="glass-card min-w-0 w-full p-5 md:p-6 transition-transform duration-100 ease-out">
+                <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-3 mb-4">
+                  <div>
+                    <h3 class="text-xl md:text-2xl font-bold text-white">CyberSoft Technology</h3>
+                    <p class="text-base md:text-lg text-emerald-400 font-medium mt-0.5">Front End Engineer</p>
+                  </div>
+                  <div class="px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 font-medium text-xs whitespace-nowrap shrink-0">
+                    May 2022 — Apr 2024
+                  </div>
+                </div>
+                <div class="h-px w-full bg-gradient-to-r from-zinc-700/50 to-transparent mb-5"></div>
+                
+                <div class="relative py-1 pl-1" id="cybersoft-bullets-container">
+                  <!-- Vertical Progress Line -->
+                  <div class="absolute left-[8px] top-3 bottom-3 w-[2px] bg-zinc-800/80 rounded-full overflow-hidden">
+                    <div id="cybersoft-progress-line" class="absolute top-0 left-0 w-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)] h-0"></div>
+                  </div>
+                  <ul class="space-y-4 text-zinc-300 relative z-10">
+                    <li class="cybersoft-bullet flex gap-4 transition-all duration-500">
+                      <div class="relative mt-[5px] shrink-0 w-2.5 h-2.5 flex items-center justify-center">
+                        <div class="bullet-dot w-1.5 h-1.5 bg-zinc-700 rounded-full transition-colors duration-500 z-10"></div>
+                        <div class="bullet-glow absolute inset-0 bg-emerald-500 rounded-full opacity-0 scale-150 blur-sm transition-all duration-500"></div>
+                      </div>
+                      <span class="text-sm leading-snug bullet-text transition-colors duration-500">Led the end-to-end development of a proprietary LeetCode-style coding platform featuring code compilation, a syntax-highlighted editor, and challenge management.</span>
+                    </li>
+                    <li class="cybersoft-bullet flex gap-4 transition-all duration-500">
+                      <div class="relative mt-[5px] shrink-0 w-2.5 h-2.5 flex items-center justify-center">
+                        <div class="bullet-dot w-1.5 h-1.5 bg-zinc-700 rounded-full transition-colors duration-500 z-10"></div>
+                        <div class="bullet-glow absolute inset-0 bg-emerald-500 rounded-full opacity-0 scale-150 blur-sm transition-all duration-500"></div>
+                      </div>
+                      <span class="text-sm leading-snug bullet-text transition-colors duration-500">Developed learning features including personalized paths, content recommendations, progress analytics, and an automatic CV generation system.</span>
+                    </li>
+                    <li class="cybersoft-bullet flex gap-4 transition-all duration-500">
+                      <div class="relative mt-[5px] shrink-0 w-2.5 h-2.5 flex items-center justify-center">
+                        <div class="bullet-dot w-1.5 h-1.5 bg-zinc-700 rounded-full transition-colors duration-500 z-10"></div>
+                        <div class="bullet-glow absolute inset-0 bg-emerald-500 rounded-full opacity-0 scale-150 blur-sm transition-all duration-500"></div>
+                      </div>
+                      <span class="text-sm leading-snug bullet-text transition-colors duration-500">Designed user behavior tracking and analytics dashboards to analyze patterns and support platform optimization.</span>
+                    </li>
+                    <li class="cybersoft-bullet flex gap-4 transition-all duration-500">
+                      <div class="relative mt-[5px] shrink-0 w-2.5 h-2.5 flex items-center justify-center">
+                        <div class="bullet-dot w-1.5 h-1.5 bg-zinc-700 rounded-full transition-colors duration-500 z-10"></div>
+                        <div class="bullet-glow absolute inset-0 bg-emerald-500 rounded-full opacity-0 scale-150 blur-sm transition-all duration-500"></div>
+                      </div>
+                      <span class="text-sm leading-snug bullet-text transition-colors duration-500">Mentored students in frontend and backend courses (ReactJS, VueJS, Node.js) at CyberSoft Academy.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Education & Mentoring Layout -->
+      <section class="grid md:grid-cols-2 gap-8 md:gap-16 mt-16 pb-16 relative z-10 snap-start scroll-mt-24">
+        <!-- Background Ambient Glow -->
+        <div class="absolute inset-0 bg-emerald-500/5 blur-[100px] -z-10 rounded-full pointer-events-none"></div>
+
+        <!-- Education Column -->
+        <div id="education" class="scroll-mt-32">
+          <div class="flex items-center gap-3 mb-8">
+            <div class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M251.76,88.94l-120-64a8,8,0,0,0-7.52,0l-120,64a8,8,0,0,0,0,14.12L32,117.87v48.42a15.91,15.91,0,0,0,4.06,10.65C49.16,191.53,78.51,216,128,216a130,130,0,0,0,48-8.76V240a8,8,0,0,0,16,0V199.51a115.63,115.63,0,0,0,27.94-22.57A15.91,15.91,0,0,0,224,166.29V117.87l27.76-14.81a8,8,0,0,0,0-14.12ZM128,200c-43.27,0-68.72-21.14-80-33.71V126.4l76.24,40.66a8,8,0,0,0,7.52,0L208,126.4v39.89C196.72,178.86,171.27,200,128,200Zm0-49.44L24.36,96,128,40.72,231.64,96Z"></path></svg>
+            </div>
+            <h2 class="text-2xl font-bold text-white tracking-tight">Education</h2>
+          </div>
+          
+          <div class="relative pl-6 sm:pl-8 border-l border-zinc-800/60 space-y-8">
+            
+            <!-- Edu Item 1 -->
+            <div class="relative group">
+              <!-- Timeline Dot -->
+              <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3 h-3 bg-zinc-900 rounded-full border border-zinc-600 group-hover:bg-emerald-500 group-hover:border-emerald-400 group-hover:shadow-[0_0_12px_rgba(16,185,129,0.6)] transition-all duration-300 z-10"></div>
+              
+              <div class="glass-card p-5 sm:p-6 border border-zinc-800/60 hover:border-emerald-500/30 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:-translate-y-1 bg-zinc-900/40 relative overflow-hidden group-hover:bg-zinc-800/40">
+                <div class="absolute -top-12 -right-12 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl group-hover:bg-emerald-500/10 transition-colors duration-500"></div>
+                
+                <h4 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">Ho Chi Minh City University of Technology and Education</h4>
+                <div class="flex flex-wrap items-center gap-2 mt-2 mb-4">
+                  <span class="px-2.5 py-1 rounded bg-zinc-800/80 text-zinc-300 text-xs font-semibold tracking-wide border border-zinc-700/50">2018 — 2023</span>
+                </div>
+                <div class="space-y-1.5">
+                  <p class="text-zinc-300 text-sm flex items-start gap-2">
+                    <span class="text-emerald-500 mt-0.5">▹</span>
+                    <span><span class="text-zinc-500 font-medium">Major:</span> E-commerce</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Edu Item 2 -->
+            <div class="relative group">
+              <!-- Timeline Dot -->
+              <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3 h-3 bg-zinc-900 rounded-full border border-zinc-600 group-hover:bg-emerald-500 group-hover:border-emerald-400 group-hover:shadow-[0_0_12px_rgba(16,185,129,0.6)] transition-all duration-300 z-10"></div>
+              
+              <div class="glass-card p-5 sm:p-6 border border-zinc-800/60 hover:border-emerald-500/30 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:-translate-y-1 bg-zinc-900/40 relative overflow-hidden group-hover:bg-zinc-800/40">
+                <div class="absolute -top-12 -right-12 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl group-hover:bg-emerald-500/10 transition-colors duration-500"></div>
+                
+                <h4 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">Cybersoft Academy</h4>
+                <div class="flex flex-wrap items-center gap-2 mt-2 mb-4">
+                  <span class="px-2.5 py-1 rounded bg-zinc-800/80 text-zinc-300 text-xs font-semibold tracking-wide border border-zinc-700/50">650 TOEIC</span>
+                </div>
+                <div class="space-y-1.5">
+                  <p class="text-zinc-300 text-sm flex items-start gap-2">
+                    <span class="text-emerald-500 mt-0.5">▹</span>
+                    <span><span class="text-zinc-500 font-medium">Major:</span> Information Technology</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- Mentoring Column -->
+        <div id="mentoring" class="scroll-mt-32">
+          <div class="flex items-center gap-3 mb-8">
+            <div class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M244.8,150.4a8,8,0,0,1-11.2-1.6A51.6,51.6,0,0,0,192,128a8,8,0,0,1-7.37-4.89,8,8,0,0,1,0-6.22A8,8,0,0,1,192,112a24,24,0,1,0-23.24-30,8,8,0,1,1-15.5-4A40,40,0,1,1,219,117.51a67.94,67.94,0,0,1,27.43,21.68A8,8,0,0,1,244.8,150.4ZM190.92,212a8,8,0,1,1-13.84,8,57,57,0,0,0-83.13-9.12A8,8,0,0,1,82.8,199.1a73,73,0,0,1,109.83,11.05ZM236,196a8,8,0,0,1-10.92,10.92A57,57,0,0,0,154.21,189,8,8,0,0,1,142.8,177.8a73,73,0,0,1,90.23,23A8,8,0,0,1,236,196ZM86.1,162a8,8,0,1,1-12.2,10,41,41,0,0,0-57,5.65,8,8,0,0,1-12.83-9.5A57,57,0,0,1,83,160.29,8,8,0,0,1,86.1,162ZM128,152a48,48,0,1,0-48-48A48.05,48.05,0,0,0,128,152Zm0-80a32,32,0,1,1-32,32A32,32,0,0,1,128,72Z"></path></svg>
+            </div>
+            <h2 class="text-2xl font-bold text-white tracking-tight">Mentoring</h2>
+          </div>
+          
+          <div class="relative pl-6 sm:pl-8 border-l border-zinc-800/60 space-y-8">
+            
+            <!-- Mentoring Item 1 -->
+            <div class="relative group">
+              <!-- Timeline Dot -->
+              <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3 h-3 bg-zinc-900 rounded-full border border-zinc-600 group-hover:bg-emerald-500 group-hover:border-emerald-400 group-hover:shadow-[0_0_12px_rgba(16,185,129,0.6)] transition-all duration-300 z-10"></div>
+              
+              <div class="glass-card p-5 sm:p-6 border border-zinc-800/60 hover:border-emerald-500/30 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:-translate-y-1 bg-zinc-900/40 relative overflow-hidden group-hover:bg-zinc-800/40">
+                <div class="absolute -top-12 -right-12 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl group-hover:bg-emerald-500/10 transition-colors duration-500"></div>
+                
+                <h4 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">Teaching Assistant</h4>
+                <div class="flex flex-wrap items-center gap-2 mt-2 mb-4">
+                  <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs font-semibold tracking-wide border border-emerald-500/20">Cybersoft Academy</span>
+                  <span class="px-2.5 py-1 rounded bg-zinc-800/80 text-zinc-300 text-xs font-semibold tracking-wide border border-zinc-700/50">Jan 2024 — Present</span>
+                </div>
+                <div class="space-y-2">
+                  <p class="text-zinc-300 text-sm flex items-start gap-2">
+                    <span class="text-emerald-500 mt-0.5">▹</span>
+                    <span class="leading-relaxed">Participate in teaching according to curriculum (NodeJS, ReactJS). Manage and develop IT projects.</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mentoring Item 2 -->
+            <div class="relative group">
+              <!-- Timeline Dot -->
+              <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3 h-3 bg-zinc-900 rounded-full border border-zinc-600 group-hover:bg-emerald-500 group-hover:border-emerald-400 group-hover:shadow-[0_0_12px_rgba(16,185,129,0.6)] transition-all duration-300 z-10"></div>
+              
+              <div class="glass-card p-5 sm:p-6 border border-zinc-800/60 hover:border-emerald-500/30 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:-translate-y-1 bg-zinc-900/40 relative overflow-hidden group-hover:bg-zinc-800/40">
+                <div class="absolute -top-12 -right-12 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl group-hover:bg-emerald-500/10 transition-colors duration-500"></div>
+                
+                <h4 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">Mentor</h4>
+                <div class="flex flex-wrap items-center gap-2 mt-2 mb-4">
+                  <span class="px-2.5 py-1 rounded bg-zinc-800/80 text-zinc-300 text-xs font-semibold tracking-wide border border-zinc-700/50">May 2022 — Dec 2023</span>
+                </div>
+                <div class="space-y-2">
+                  <p class="text-zinc-300 text-sm flex items-start gap-2">
+                    <span class="text-emerald-500 mt-0.5">▹</span>
+                    <span class="leading-relaxed">Assisted in problem-solving and troubleshooting, offering personalized advice to students in NodeJS and ReactJS.</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+      </section>
+      
+      <!-- Footer -->
+      <footer class="pt-12 pb-6 border-t border-zinc-800/50 mt-12 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-zinc-500 text-sm">
+          © 2024 Tran Hoang Lam. Built with Three.js & Tailwind v4.
+        </div>
+        <div class="flex gap-6">
+          <a href="https://github.com/devlamtran" class="text-zinc-400 hover:text-white transition-colors">GitHub</a>
+          <a href="https://linkedin.com/in/devlamtran" class="text-zinc-400 hover:text-white transition-colors">LinkedIn</a>
+        </div>
+      </footer>
+
+    </main>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
